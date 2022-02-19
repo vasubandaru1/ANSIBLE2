@@ -1,14 +1,26 @@
-- name: play level variables
-  hosts: all
-  vars:
-     URL: play.sample.com
-  tasks:
-    - name: variables in task1
-      ansible.builtin.debug:
-        msg: acess variable in task1 = {{URL}}
-
-    - name: Variables in task2
-      ansible.builtin.debug:
-        msg: access variable in task2 = {{URL}}
+#- name: play level variables
+#  hosts: all
+#  vars:
+#     URL: play.sample.com
+#  tasks:
+#    - name: variables in task1
+#      ansible.builtin.debug:
+#        msg: acess variable in task1 = {{URL}}
+#
+#    - name: Variables in task2
+#      ansible.builtin.debug:
+#        msg: access variable in task2 = {{URL}}
 
 #Declare variables in play level can be accessed by by every tasks
+
+- name: variables from file
+  hosts: all
+  vars_files:
+      - variablesfile.yml
+  tasks:
+
+     - name: variables in task1
+       ansible.builtin.debug:
+           msg: acess variable in task1 = {{URL}}
+
+#variables accessed from files
