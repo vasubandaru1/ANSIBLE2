@@ -30,4 +30,5 @@
      - name: variables in task1
        ansible.builtin.debug:
           msg: URL = {{URL}}
-       URL: task.example.com
+       vars:
+         URL: task.example.com
