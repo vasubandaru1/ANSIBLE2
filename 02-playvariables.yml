@@ -23,3 +23,11 @@
            msg: URL = {{URL}}
 
 #variables accessed from files
+
+- name: variables from task level
+  hosts: all
+  tasks:
+     - name: variables in task1
+       ansible.builtin.debug:
+          msg: URL = {{URL}}
+       URL: task.example.com
