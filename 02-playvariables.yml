@@ -86,7 +86,7 @@
   hosts: all
   tasks:
     - name: print the uptime
-      ansible.builtin.shell: UPTIME
+      ansible.builtin.shell: uptime
       register: OUT
 
     - name: print output
