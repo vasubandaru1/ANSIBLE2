@@ -81,16 +81,17 @@
 #54.91.151.239              : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 #
 ###it is over writing so we dont use facts
+#
+#- name: Run time variables
+#  hosts: all
+#  tasks:
+#    - name: print the uptime
+#      ansible.builtin.shell: uptime
+#      register: OUT
+#
+### out is a  variable
+#
+#    - name: print output
+#      ansible.builtin.debug:
+#        msg: "{{OUT.stdout}}"
 
-- name: Run time variables
-  hosts: all
-  tasks:
-    - name: print the uptime
-      ansible.builtin.shell: uptime
-      register: OUT
-
-## out is a  variable
-
-    - name: print output
-      ansible.builtin.debug:
-        msg: "{{OUT.stdout}}"
