@@ -1,6 +1,6 @@
 - name: play1
   hosts: all
   ansible.builtin.debug:
-      mmsg: "print play1"
+      msg: "print play1"
 
 
