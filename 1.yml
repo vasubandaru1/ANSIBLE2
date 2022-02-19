@@ -5,4 +5,11 @@
        ansible.builtin.debug:
            msg: "print task1"
 
+     - name: print task2
+       ansible.builtin.debug:
+         msg: "print task2"
+
+- name: play2
+  hosts: all
+
 
