@@ -10,3 +10,5 @@
     - name: Variables in task2
       ansible.builtin.debug:
         msg: access variable in task2 = {{URL}}
+
+#Declare variables in play level can be accessed by by every tasks
