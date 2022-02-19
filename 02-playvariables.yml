@@ -33,18 +33,28 @@
 #       vars:
 #         URL: task.example.com
 #task levael variables
-- name: variables from task level
-  hosts: all
-  tasks:
-     - name: variables in task1
-       ansible.builtin.debug:
-          msg: URL = {{URL}}
+#- name: variables from task level
+#  hosts: all
+#  tasks:
+#     - name: variables in task1
+#       ansible.builtin.debug:
+#          msg: URL = {{URL}}
 #Iventroy level variables
-- name: variables from task level
+#- name: variables from task level
+#  hosts: all
+#  tasks:
+#     - name: variables in task1
+#       ansible.builtin.debug:
+#          msg: URL = {{URL}}
+
+#Command line variables -e option for this
+
+- name: varriable facts
   hosts: all
   tasks:
-     - name: variables in task1
+     - name: prnit variable facts
        ansible.builtin.debug:
-          msg: URL = {{URL}}
+         msg: "built OS = {{ansible_distribution}}"
 
-#Command line variables
+#Ansible pre defined variable facts
+
