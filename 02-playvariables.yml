@@ -13,14 +13,14 @@
 
 #Declare variables in play level can be accessed by by every tasks
 
-- name: variables from file
-  hosts: all
-  vars_files:
-      - Variables-file.yml
-  tasks:
-     - name: variables in task1
-       ansible.builtin.debug:
-           msg: URL = {{URL}}
+#- name: variables from file
+#  hosts: all
+#  vars_files:
+#      - Variables-file.yml
+#  tasks:
+#     - name: variables in task1
+#       ansible.builtin.debug:
+#           msg: URL = {{URL}}
 
 #variables accessed from files
 
