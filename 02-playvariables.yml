@@ -24,11 +24,19 @@
 
 #variables accessed from files
 
+#- name: variables from task level
+#  hosts: all
+#  tasks:
+#     - name: variables in task1
+#       ansible.builtin.debug:
+#          msg: URL = {{URL}}
+#       vars:
+#         URL: task.example.com
+#task levael variables
 - name: variables from task level
   hosts: all
   tasks:
      - name: variables in task1
        ansible.builtin.debug:
           msg: URL = {{URL}}
-       vars:
-         URL: task.example.com
+#Iventroy level variables
