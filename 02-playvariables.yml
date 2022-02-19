@@ -18,9 +18,8 @@
   vars_files:
       - variablesfile.yml
   tasks:
-
      - name: variables in task1
        ansible.builtin.debug:
-           msg: acess variable in task1 = {{URL}}
+           msg: URL = {{URL}}
 
 #variables accessed from files
