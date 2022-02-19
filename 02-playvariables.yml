@@ -57,12 +57,38 @@
 #         msg: "built OS = {{ansible_distribution}}"
 
 #Ansible pre defined variable facts
-- name: varriable facts
-  hosts: all
-  vars:
-     ansible_distribution: sample
-  tasks:
-     - name: prnit variable facts
-       ansible.builtin.debug:
-         msg: "built OS = {{ansible_distribution}}"
+#- name: varriable facts
+#  hosts: all
+#  vars:
+#     ansible_distribution: sample
+#  tasks:
+#     - name: prnit variable facts
+#       ansible.builtin.debug:
+#         msg: "built OS = {{ansible_distribution}}"
+#
+# ansible -i ../inv all -u centos -k -m setup is used for pre defined facts
+#PLAY [varriable facts] *********************************************************
+#
+#TASK [Gathering Facts] *********************************************************
+#ok: [54.91.151.239]
+#
+#TASK [prnit variable facts] ****************************************************
+#ok: [54.91.151.239] => {
+#    "msg": "built OS = sample"
+#}
+#
+#PLAY RECAP *********************************************************************
+#54.91.151.239              : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+#
+###it is over writing so we dont use facts
 
+- name: Run time variables
+  hosts: all
+  tasks:
+    - name: print the uptime
+      ansible.builtin.shell: UPTIME
+      register: OUT
+
+    - name: print output
+      ansible.builtin.debug:
+        msg: "{{OUT}}"
