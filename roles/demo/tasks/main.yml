@@ -1,3 +1,7 @@
 - name: print roles
   ansible.builtin.debug:
     msg: "Print the task"
+
+- name: print roles
+  ansible.builtin.debug:
+    msg: "URL = {{URL}}"
