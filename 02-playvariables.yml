@@ -16,7 +16,7 @@
 - name: variables from file
   hosts: all
   vars_files:
-      - variables-file.yml
+      - Variables-file.yml
   tasks:
      - name: variables in task1
        ansible.builtin.debug:
