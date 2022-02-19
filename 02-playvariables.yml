@@ -49,12 +49,20 @@
 
 #Command line variables -e option for this
 
+#- name: varriable facts
+#  hosts: all
+#  tasks:
+#     - name: prnit variable facts
+#       ansible.builtin.debug:
+#         msg: "built OS = {{ansible_distribution}}"
+
+#Ansible pre defined variable facts
 - name: varriable facts
   hosts: all
+  vars:
+     ansible_distribution: sample
   tasks:
      - name: prnit variable facts
        ansible.builtin.debug:
          msg: "built OS = {{ansible_distribution}}"
-
-#Ansible pre defined variable facts
 
