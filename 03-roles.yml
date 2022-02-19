@@ -1,0 +1,4 @@
+- name: print the task
+  hosts: all
+  roles:
+     - demo
