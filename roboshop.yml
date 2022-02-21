@@ -3,3 +3,9 @@
   become: true
   roles:
     - frontend
+
+- name: setup mongodb
+  hosts: mongodb
+  become: true
+  roles:
+    - mongodb
