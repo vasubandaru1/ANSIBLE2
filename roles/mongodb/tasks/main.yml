@@ -24,3 +24,11 @@
   include_role:
     name: common
     tasks_from: download
+
+
+- name: Run a js file containing MongoDB commands with pseudo-idempotency
+  community.mongodb.mongodb_shell:
+    login_user: user
+    login_password: secret
+    file: "/path/to/mongo/file.js"
+    idempotent: yes
