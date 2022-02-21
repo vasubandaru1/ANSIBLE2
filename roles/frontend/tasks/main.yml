@@ -9,7 +9,12 @@
     enabled: yes
     state: restarted
 
-- name: Download and Extract code
+- name: Download and Extract {{COMPONENT}} code
   include_role:
     name: common
     tasks_from: download
+
+- name: Recursively remove directory
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
