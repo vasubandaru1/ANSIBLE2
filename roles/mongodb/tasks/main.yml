@@ -19,3 +19,8 @@
     name: mongod
     enabled: yes
     state: restarted
+
+- name: Download and Extract {{COMPONENT}} code
+  include_role:
+    name: common
+    tasks_from: download
