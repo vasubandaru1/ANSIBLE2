@@ -1,4 +1,5 @@
 - name: setup frontend
   hosts: frontend
+  become: true
   roles:
     - frontend
