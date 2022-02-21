@@ -8,13 +8,13 @@
     name: mongodb-org
     state: present
 
-- name: update listner in confif
+- name: update listner in confic
   ansible.builtin.replace:
     path: /etc/mongod.conf
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
 
-- name: Start mongod services
+- name: Start mongodb services
   ansible.builtin.systemd:
     name: mongod
     enabled: yes
