@@ -5,7 +5,7 @@
 
 - name: Install mongodb
   ansible.builtin.yum:
-    name: mongod-org
+    name: mongodb-org
     state: present
 
 - name: update listner in confif
