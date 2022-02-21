@@ -18,4 +18,3 @@ mysql.internal.roboshop
 rabbitmq.internal.roboshop
 [redis]
 redis.internal.roboshop
-
