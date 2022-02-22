@@ -26,9 +26,10 @@
     tasks_from: download
 
 
-- name: Run a js file containing MongoDB commands with pseudo-idempotency
+- name: Load schema
   community.mongodb.mongodb_shell:
-    login_user: user
-    login_password: secret
-    file: "/path/to/mongo/file.js"
+    file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
+    loop:
+      - catalogue
+      - users
