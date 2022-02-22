@@ -5,5 +5,5 @@
   tasks:
     - name: print fruits
       ansible.builtin.debug:
-        msg: "fruits = {{items}}"
+        msg: "fruits = {{item}}"
       loops: "{{fruits}}"
