@@ -1,11 +1,11 @@
 - name: demo on loops
   hosts: localhost
   vars:
-    fruits: [ 'mango' 'apple' ]
+    fruits: [ 'mango', 'apple' ]
 
     - name: print fruits
       ansible.builtin.debug:
-        msg: "fruits = {{items}}
+        msg: "fruits = {{items}}"
       loops:
           - mango
           - apple
