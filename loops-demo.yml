@@ -2,7 +2,7 @@
   hosts: localhost
   vars:
     fruits: [ "mango", "apple" ]
-
+  tasks:
     - name: print fruits
       ansible.builtin.debug:
         msg: "fruits = {{items}}"
