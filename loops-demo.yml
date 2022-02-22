@@ -6,6 +6,4 @@
     - name: print fruits
       ansible.builtin.debug:
         msg: "fruits = {{items}}"
-      loops:
-          - mango
-          - apple
+      loops: {{fruits}}
