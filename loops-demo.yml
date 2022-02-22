@@ -1,9 +1,10 @@
 - name: demo on loops
   hosts: localhost
+  vars:
+     fruits: [ 'mango', 'apple' ]
   tasks:
     - name: print fruits
       ansible.builtin.debug:
         msg: "fruits = {{item}}"
-      loop:
-        - mango
-        - apple
+      loop: "{{fruits}}"
+
