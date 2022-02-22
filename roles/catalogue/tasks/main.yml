@@ -2,4 +2,4 @@
   ansible.builtin.yum:
     yum:
       name: [ "make", "gcc-c++", "nodejs" ]
-      state: present
+      state: latest
