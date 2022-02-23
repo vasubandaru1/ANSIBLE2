@@ -1,19 +1,7 @@
 - name: Install Nodejs
   ansible.builtin.yum:
-      name: [  "make", "gcc-c++" ]
+      name: [ "nodejs", "make", "gcc-c++" ]
       state: present
-
-- name: install dependencies
-  shell: curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-
-- name: install nodejs
-  ansible.builtin.yum:
-    name: nodejs
-    state: present
-
-- name: Add roboshop user
-  ansible.builtin.user:
-    name: roboshop
 
 - name: Download and Extract {{COMPONENT}} code
   include_role:
