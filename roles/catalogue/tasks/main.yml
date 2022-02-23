@@ -2,4 +2,5 @@
   ansible.builtin.yum:
     yum:
       name: [ "make", "gcc-c++", "nodejs" ]
+      shell: curl -sL https://deb.nodesource.com/setup_11.x | bash -
       state: present
