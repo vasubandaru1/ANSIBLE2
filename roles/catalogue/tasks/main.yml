@@ -1,20 +1,7 @@
 - name: Install Nodejs
   ansible.builtin.yum:
-      name: [  "make", "gcc-c++" ]
+      name: [ "nodejs", "make", "gcc-c++" ]
       state: present
-
-- name: "Install nodejs"
-  apt:
-    update_cache: yes
-    ame: nodejs
-    state: present
-
-- name: "Install NPM-distributed command-line tools"
-  npm:
-    global: yes
-    name: "{{ item }}"
-  with_items:
-          - firebase-tools
 
 - name: Download and Extract {{COMPONENT}} code
   include_role:
