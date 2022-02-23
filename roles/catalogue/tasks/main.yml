@@ -20,5 +20,11 @@
 - name: copy the content
   ansible.builtin.copy:
     src: /tmp/catalogue-main/
-    dest: /home/roboshop/
+    dest: /home/roboshop/catalogue
     remote_src: yes
+  become_user: roboshop
+
+- name: Install packages node.js
+  community.general.npm:
+    path: /home/roboshop/catalogue
+  become_user: roboshop
