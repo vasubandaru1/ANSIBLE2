@@ -24,4 +24,3 @@
   community.general.npm:
     path: /home/roboshop/catalogue
   become_user: roboshop
-s
