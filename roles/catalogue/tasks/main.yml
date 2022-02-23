@@ -1,11 +1,11 @@
 - name: Install Nodejs
   ansible.builtin.yum:
-      name: [ "nodejs", "make", "gcc-c++" ]
+      name: [  "make", "gcc-c++" ]
       state: present
 
-- name: Add Node 11 PPA
-  shell: curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash -
-
+- name: install node
+  shell: |
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - && sudo apt-get install -y nodej
 
 - name: Add roboshop user
   ansible.builtin.user:
