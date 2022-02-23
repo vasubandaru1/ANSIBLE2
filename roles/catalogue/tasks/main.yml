@@ -20,9 +20,8 @@
     remote_src: true
   become_user: roboshop
 
-
-    - name: install packages based on package.json.
-      npm:
-        path: /home/roboshop/catalogue
-        state: latest
-        production: yes
+- name: Install node.js dependencies
+  community.general.npm:
+    path: /home/roboshop/catalogue
+  become_user: roboshop
+s
