@@ -5,8 +5,7 @@
 
 - name: Add Node 11 PPA
   shell: curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash -
-  args:
-    warn: no
+
 
 - name: Add roboshop user
   ansible.builtin.user:
