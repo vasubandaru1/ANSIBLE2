@@ -2,3 +2,23 @@
   ansible.builtin.yum:
       name: [ "nodejs", "make", "gcc-c++" ]
       state: present
+
+- name: Add roboshop user
+  ansible.builtin.user:
+    name: roboshop
+
+- name: Download and Extract {{COMPONENT}} code
+  include_role:
+    name: common
+    tasks_from: download
+
+- name: remove old content
+  ansible.builtin.file:
+    path: home/roboshop
+    state: absent
+
+- name: copy the content
+  ansible.builtin.copy:
+    src: /tmp/catalogue-main/
+    dest: /home/roboshop/
+    remote_src: yes
