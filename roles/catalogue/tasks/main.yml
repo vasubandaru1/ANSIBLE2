@@ -21,7 +21,7 @@
   become_user: roboshop
 
 - name: Install packages based on package.json.
-  npm:
+  community.general.npm:
     path: /home/roboshop/catalogue
 
 - name: Install node.js dependencies
