@@ -2,6 +2,6 @@
   ansible.builtin.yum:
     yum:
       name: [ "nodeJs", "make", "gcc-c++" ]
-      shell: curl -sL https://rpm.nodesource.com/setup_6.x | bash -
+      shell: curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash -
       enabled: yes
       state: present
