@@ -2,5 +2,4 @@
   ansible.builtin.yum:
     yum:
       name: [ 'make', 'gcc-c++', 'nodejs' ]
-      enabled: yes
       state: latest
