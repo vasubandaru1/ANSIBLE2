@@ -31,7 +31,6 @@
 
 - name: Install packages node.js
   community.general.npm:
-    shell: curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash -
     path: /home/roboshop/catalogue
     state: latest
   become_user: roboshop
