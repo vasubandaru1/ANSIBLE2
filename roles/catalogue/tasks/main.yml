@@ -1,5 +1,5 @@
 - name: Install Nodejs
   ansible.builtin.yum:
     yum:
-      name: [ "make", "gcc-c++" ]
+      name: [ 'make', 'gcc-c++' ]
       state: present
