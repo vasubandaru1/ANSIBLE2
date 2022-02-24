@@ -16,3 +16,5 @@ mysql-dev.roboshop.internal
 mongodb-dev.roboshop.internal
 [rabbitmq]
 rabbitmq-dev.roboshop.internal
+[redis]
+redis-dev.roboshop.internal
