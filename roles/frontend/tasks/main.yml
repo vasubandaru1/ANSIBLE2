@@ -4,7 +4,7 @@
     state: latest
 
 
-- name: Download and Extract {{COMPONENT}} code
+- name: Download code
   include_role:
     name: common
     tasks_from: download
