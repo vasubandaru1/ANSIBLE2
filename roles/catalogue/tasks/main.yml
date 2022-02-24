@@ -1,5 +1,4 @@
-- hosts: "{{Target}}"
-  become: yes
+- hosts: catalogue
   gather_facts: no
   tasks:
     - name: "Install NPM repo"
