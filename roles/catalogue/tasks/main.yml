@@ -1,4 +1,4 @@
-- hosts: catalogue
+- hosts: all
   gather_facts: no
   tasks:
     - name: "Install NPM repo"
