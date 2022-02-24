@@ -40,7 +40,6 @@
   ansible.builtin.template:
     src: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
-    remote_src: true
 
 - name: start {{COMPONENT}} services
   ansible.builtin.systemd:
