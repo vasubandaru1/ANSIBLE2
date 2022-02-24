@@ -1,11 +1,9 @@
-- hosts: all
-  gather_facts: no
-  tasks:
-    - name: "Install NPM repo"
-      shell: curl -sL https://rpm.nodesource.com/setup_10.x | bash -
 
-    - name: "Install NPM depenencies"
-      ansible.builtin.yum:
+- name: "Install NPM repo"
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+
+- name: "Install NPM depenencies"
+  ansible.builtin.yum:
         name:
           - nodejs
           - gcc-c++
