@@ -24,13 +24,13 @@
     remote_src: true
   become_user: roboshop
 
-- name: Install node.js dependencies
+- name: Install nodejs dependencies
   community.general.npm:
     path: /home/roboshop/catalogue
   become_user: roboshop
 
 - name: update systemd service file
-  template:
+  ansible.builtin.template:
     src: systemd.service
     dest: /etc/systemd/system/catalogue.service
 
