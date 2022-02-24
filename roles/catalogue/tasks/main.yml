@@ -10,7 +10,7 @@
 
 - name: remove old content
   ansible.builtin.file:
-    path: home/roboshop
+    path: /home/roboshop
     state: absent
 
 - name: copy the content
