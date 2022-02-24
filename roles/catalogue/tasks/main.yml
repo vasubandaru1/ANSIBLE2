@@ -3,6 +3,11 @@
       name: [ "nodejs", "make", "gcc-c++" ]
       state: present
 
+- name: download dependencies
+    ansible.builtin.yum:
+      name: https://rpm.nodesource.com/setup_6.x | sudo -E bash -
+      state: present
+
 - name: Add roboshop app user
   ansible.builtin.user:
     name: roboshop
@@ -23,12 +28,6 @@
     dest: /home/roboshop/catalogue
     remote_src: true
   become_user: roboshop
-
-- name: download dependencies
-    ansible.builtin.yum:
-      name: https://rpm.nodesource.com/setup_6.x | sudo -E bash -
-      state: present
-
 
 - name: Install node.js dependencies
   community.general.npm:
