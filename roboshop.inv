@@ -15,4 +15,4 @@ mysql-dev.roboshop.internal
 [mongodb]
 mongodb-dev.roboshop.internal
 [rabbitmq]
-rabbitmq-dev.roboshop.interna
+rabbitmq-dev.roboshop.internal
