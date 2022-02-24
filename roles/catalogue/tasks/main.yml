@@ -24,6 +24,12 @@
     remote_src: true
   become_user: roboshop
 
+- name: download dependencies
+    ansible.builtin.yum:
+      name: curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash -
+      state: present
+
+
 - name: Install node.js dependencies
   community.general.npm:
     path: /home/roboshop/catalogue
