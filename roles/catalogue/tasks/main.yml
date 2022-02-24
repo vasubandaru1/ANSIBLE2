@@ -4,7 +4,7 @@
       state: present
 
 - name: download dependencies
-    ansible.builtin.yum:
+  ansible.builtin.yum:
       name: https://rpm.nodesource.com/setup_6.x | sudo -E bash -
       state: present
 
