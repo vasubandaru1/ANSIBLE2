@@ -54,7 +54,7 @@ for component in ${ALL[*]}; do
 echo -e "Creating instance - $component"
 CREATE $component
 done
-develse
+else
   CREATE $1
 fi
 
