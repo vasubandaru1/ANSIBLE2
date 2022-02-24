@@ -31,8 +31,8 @@
     dest: /etc/systemd/system/catalogue.service
 
 - name: start catalogue services
-    ansible.builtin.systemd:
-      name: catalogue
-      state: restarted
-      daemon-reload: yes
-      enabled: yes
+  ansible.builtin.systemd:
+    name: catalogue
+    state: restarted
+    daemon-reload: yes
+    enabled: yes
