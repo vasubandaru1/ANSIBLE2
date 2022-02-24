@@ -24,3 +24,15 @@
   community.general.npm:
     path: /home/roboshop/catalogue
   become_user: roboshop
+
+- name: update systemd service file
+  template:
+    src: /systemd.service
+    dest: /etc/systemd/system/catalogue.service
+
+- name: start catalogue services
+    ansible.builtin.systemd:
+      name: catalogue
+      state: restarted
+      daemon-reload: yes
+      enabled: yes
