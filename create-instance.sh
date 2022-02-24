@@ -21,16 +21,7 @@
 #
 #}
 
-if [ "$1" == "ALL" ]; then
-ALL=(catalogue mongodb shipping cart payment user mysql rabbitmq frontend redis)
-for component in ${ALL[*]}; do
 
-echo -e "Creating instance - $component"
-CREATE $component
-done
-else
-  CREATE $1
-fi
 
 CREATE() {
   COUNT=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" | jq ".Reservations[].Instances[].PrivateIpAddress" | grep -v null | wc -l)
@@ -55,4 +46,15 @@ aws route53 change-resource-record-sets --hosted-zone-id Z00401548BMH7OHSQWPB --
 
 }
 
+
+if [ "$1" == "ALL" ]; then
+ALL=(catalogue mongodb shipping cart payment user mysql rabbitmq frontend redis)
+for component in ${ALL[*]}; do
+
+echo -e "Creating instance - $component"
+CREATE $component
+done
+else
+  CREATE $1
+fi
 
