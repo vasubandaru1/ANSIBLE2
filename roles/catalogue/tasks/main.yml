@@ -5,7 +5,7 @@
 
 - name: download dependencies
   ansible.builtin.yum:
-      name: https://rpm.nodesource.com/setup_6.x | sudo -E bash -
+      name: https://rpm.nodesource.com/setup_6.x | bash -
       state: present
 
 - name: Add roboshop app user
