@@ -1,42 +1,60 @@
-- name: Install Nodejs
-  ansible.builtin.yum:
-      name: [ "nodejs", "make", "gcc-c++" ]
-      state: present
+- hosts: "{{Target}}"
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: "Install NPM repo"
+      shell: curl -sL https://rpm.nodesource.com/setup_10.x | bash -
 
-- name: Add roboshop app user
-  ansible.builtin.user:
-    name: roboshop
+    - name: "Install NPM depenencies"
+      ansible.builtin.yum:
+        name:
+          - nodejs
+          - gcc-c++
+          - make
+        state: latest
 
-- name: Download code
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: download
 
-- name: remove old content
-  ansible.builtin.file:
-    path: /home/roboshop/catalogue
-    state: absent
-
-- name: copy the content
-  ansible.builtin.copy:
-    src: /tmp/catalogue-main/
-    dest: /home/roboshop/catalogue
-    remote_src: true
-  become_user: roboshop
-
-- name: Install nodejs dependencies
-  community.general.npm:
-    path: /home/roboshop/catalogue
-  become_user: roboshop
-
-- name: update systemd service file
-  ansible.builtin.template:
-    src: systemd.service
-    dest: /etc/systemd/system/catalogue.service
-
-- name: start catalogue services
-  ansible.builtin.systemd:
-    name: catalogue
-    state: restarted
-    daemon-reload: yes
-    enabled: yes
+#
+#
+#- name: Install Nodejs
+#  ansible.builtin.yum:
+#      name: [ "nodejs", "make", "gcc-c++" ]
+#      state: present
+#
+#- name: Add roboshop app user
+#  ansible.builtin.user:
+#    name: roboshop
+#
+#- name: Download code
+#  ansible.builtin.include_role:
+#    name: common
+#    tasks_from: download
+#
+#- name: remove old content
+#  ansible.builtin.file:
+#    path: /home/roboshop/catalogue
+#    state: absent
+#
+#- name: copy the content
+#  ansible.builtin.copy:
+#    src: /tmp/catalogue-main/
+#    dest: /home/roboshop/catalogue
+#    remote_src: true
+#  become_user: roboshop
+#
+#- name: Install nodejs dependencies
+#  community.general.npm:
+#    path: /home/roboshop/catalogue
+#  become_user: roboshop
+#
+#- name: update systemd service file
+#  ansible.builtin.template:
+#    src: systemd.service
+#    dest: /etc/systemd/system/catalogue.service
+#
+#- name: start catalogue services
+#  ansible.builtin.systemd:
+#    name: catalogue
+#    state: restarted
+#    daemon-reload: yes
+#    enabled: yes
