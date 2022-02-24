@@ -21,29 +21,29 @@
 
 - name: remove old content
   ansible.builtin.file:
-    path: /home/roboshop/{{COMPONENT}}
+    path: /home/roboshop/"{{COMPONENT}}"
     state: absent
 
 - name: copy the content
   ansible.builtin.copy:
-    src: /tmp/{{COMPONENT}}-main/
-    dest: /home/roboshop/{{COMPONENT}}
+    src: /tmp/"{{COMPONENT}}"-main/
+    dest: /home/roboshop/"{{COMPONENT}}"
     remote_src: true
   become_user: roboshop
 
 - name: Install nodejs dependencies
   community.general.npm:
-    path: /home/roboshop/{{COMPONENT}}
+    path: /home/roboshop/"{{COMPONENT}}"
   become_user: roboshop
 
 - name: update systemd service file
   ansible.builtin.template:
     src: systemd.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
+    dest: /etc/systemd/system/"{{COMPONENT}}".service
 
-- name: start {{COMPONENT}} services
+- name: start "{{COMPONENT}}" services
   ansible.builtin.systemd:
-    name: {{COMPONENT}}
+    name: "{{COMPONENT}}"
     state: restarted
     daemon-reload: yes
     enabled: yes
