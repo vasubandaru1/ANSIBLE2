@@ -31,3 +31,9 @@
 - name: print
   ansible.builtin.debug:
     msg: "{{CHECK_NEW_PASSWORD}}"
+
+- name: password reset sql
+  ansible.builtin.template:
+    src: pass.sql
+    dest: /tmp/pass.sql
+  when: CHECK_NEW_PASSWORD.failed
