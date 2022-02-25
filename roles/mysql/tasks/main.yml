@@ -10,7 +10,9 @@
 
 - name: Install MySql
   ansible.builtin.yum:
-    name: mysql-community-server
+    name:
+       - mysql-community-server
+       - MySQL-python
     state: present
 
 - name: Start MySql services
@@ -28,9 +30,6 @@
   register: CHECK_NEW_PASSWORD
   ignore_errors: yes
 
-- name: print
-  ansible.builtin.debug:
-    msg: "{{CHECK_NEW_PASSWORD}}"
 
 - name: password reset sql
   ansible.builtin.template:
