@@ -1,7 +1,7 @@
 - name: copy sql repos
   ansible.builtin.copy:
     name: sql-repo
-    src: mysql.repo
+    src: mysql.repos
     dest: /etc/yum.repos.d/mysql.repo
 
 - name: remove mariadb-libs
