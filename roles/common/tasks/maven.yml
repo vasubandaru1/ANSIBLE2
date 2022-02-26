@@ -1,6 +1,6 @@
 - name: Install Maven
   ansible.builtin.yum:
-     name: mave
+     name: maven
      state: present
 
 - name: Download code
