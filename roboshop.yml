@@ -54,3 +54,10 @@
   roles:
       - shipping
 
+- name: setup rabbitmq
+  hosts: rabbitmq
+  become: true
+  tags: rabbitmq
+  roles:
+      - rabbitmq
+
