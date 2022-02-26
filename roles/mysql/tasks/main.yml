@@ -22,7 +22,7 @@
     enabled: yes
 
 - name: Default root password
-  ansible.builtin.shell: grep 'temporary password'  /var/log/mysqld.log | awk '{print $NF}'
+  ansible.builtin.shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
   register: DEFAULT_PASSWORD
 
 - name: check newpassword working
@@ -30,6 +30,9 @@
   register: CHECK_NEW_PASSWORD
   ignore_errors: yes
 
+- name: print
+  ansible.builtin.debug:
+    msg: "{{CHECK_NEW_PASSWORD}}"
 
 - name: password reset sql
   ansible.builtin.template:
@@ -41,8 +44,7 @@
   ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD.stdout}}" </tmp/pass.sql
   when: CHECK_NEW_PASSWORD.failed
 
-
-- name: Download and Extract {{COMPONENT}} code
+- name: Download code
   include_role:
       name: common
       tasks_from: download
