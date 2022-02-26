@@ -14,22 +14,16 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: download
-  APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
-
+  vars:
+     APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
+     APP_USER: roboshop
 
 - name: Install nodejs dependencies
   community.general.npm:
     path: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
 
-- name: update systemd service file
-  ansible.builtin.template:
-    src: systemd.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
-
-- name: start {{COMPONENT}} services
-  ansible.builtin.systemd:
-    name: "{{COMPONENT}}"
-    state: restarted
-    daemon-reload: yes
-    enabled: yes
+- name: Download systemd
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd
