@@ -7,7 +7,9 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: download
-  APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
+  vars:
+    APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
+
 
 
 
