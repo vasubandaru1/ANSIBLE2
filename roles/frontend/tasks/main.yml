@@ -8,11 +8,8 @@
   include_role:
     name: common
     tasks_from: download
-
-- name: Recursively remove directory
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
+  vars:
+    APP_LOCATION: /usr/share/nginx/html
 
 - name: Copy a file on the remote machine
   ansible.builtin.copy:
