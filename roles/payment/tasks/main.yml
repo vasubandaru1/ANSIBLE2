@@ -1,18 +1,3 @@
-#    $ cd payment
-#    Install the dependencies
-#  # cd /home/roboshop/payment
-#  # pip3 install -r requirements.txt
-#  Note: Above command may fail with permission denied, So run as root user
-#
-#    Update the roboshop user and group id in payment.ini file.
-#
-#    Setup the service
-#
-#  # mv /home/roboshop/payment/systemd.service /etc/systemd/system/payment.service
-#  # systemctl daemon-reload
-#  # systemctl enable payment
-#  # systemctl start payment
-
 - name: Import Python
   ansible.builtin.include_role:
     name: common
