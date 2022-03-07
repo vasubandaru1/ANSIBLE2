@@ -1,4 +1,4 @@
-- name: setup roboshop
+- name: setup Roboshop
   hosts: localhost
   become: yes
   roles:
