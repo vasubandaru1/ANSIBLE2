@@ -13,6 +13,7 @@
     name:
        - mysql-community-server
        - MySQL-python
+       - python36-PyMySQL.noarch
     state: present
 
 - name: Start MySql services
