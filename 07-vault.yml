@@ -1,4 +1,4 @@
--  name: Vault
+-  name: vault
    hosts: localhost
    vars:
      pass: !vault |
@@ -13,5 +13,5 @@
    tasks:
      - name: print password
        debug:
-          msg: "hello"
+          msg: "{{pass}}"
 
